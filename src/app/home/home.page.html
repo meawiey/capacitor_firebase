@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    uid: {{ userFirebase.uid }}
+    <br/>
+    access token: {{ userFirebase.accessToken }}
+    <br/>
+    <ion-button (click)="getUser()">check user</ion-button>
+    <p class="font-label">หมายเลขโทรศัพท์</p>
+    <ion-item lines="none">
+      <ion-input maxlength="10" inputmode="tel" [(ngModel)]="phoneNumber" placeholder="0xx-xxx-xxxx"
+        required="true"></ion-input>
+    </ion-item>
+    <ion-button (click)="callVerifyPhoneNumber()">Request OTP</ion-button>
+    <div id="recaptcha-container" [hidden]="true"></div>
+    <p class="font-label">OTP</p>
+    <ion-item lines="none">
+      <ion-input maxlength="6" inputmode="tel" [(ngModel)]="otp"
+        required="true"></ion-input>
+    </ion-item>
+    <ion-button (click)="validateOTP()">Verify OTP</ion-button>
+  </div>
+</ion-content>
